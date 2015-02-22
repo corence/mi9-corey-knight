@@ -6,6 +6,7 @@ var chai = require("chai");
 chai.should();
 
 module.exports = function() {
+	var parsed = null;
 	var result = null;
 	
 	var show = {
@@ -18,7 +19,6 @@ module.exports = function() {
 	var doc = {"payload": [show]};
 	
 	this.When(/^an empty document is passed$/, function (callback) {
-		return callback.pending();
 		result = ShowParser.extract_available_shows({});
 		callback();
 	});
@@ -26,7 +26,7 @@ module.exports = function() {
 	this.Then(/^return an empty response list$/, function (callback) {
 		result.should.have.property("response");
 		result.response.should.be.instanceof(Array);
-		result.response.length.should.be.equal(0);
+		result.response.length.should.equal(0);
 		callback();
 	});
 
@@ -63,12 +63,12 @@ module.exports = function() {
 	});
 
 	this.When(/^a non\-json document is passed$/, function (callback) {
-		return callback.pending();
-		JSON.parse("{something{");
+		parsed = ShowParser.parse_shows("{something{");
 		callback();
 	});
 
 	this.Then(/^raise an exception$/, function (callback) {
-		callback.pending();
+		parsed.should.be.a('string');
+		callback();
 	});
 };
