@@ -1,0 +1,6 @@
+
+Known issues:
+ - use "npm save" or something similar so that the appropriate node_modules can be downloaded onto other systems
+ - the cucumber steps definition file is too long; sample data should be extracted into another file (or multiple files)
+ - some cucumber steps parse the input string and some don't; this should be consistent
+ - many names aren't great (particularly, the names in the Feature file)

@@ -1,0 +1,18 @@
+{
+  "name": "mi9_corence",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "chai": "^2.0.0",
+    "cucumber": "^0.4.7",
+  },
+  "scripts": {
+    "test": "cucumber-js",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
