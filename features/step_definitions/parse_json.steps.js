@@ -40,7 +40,10 @@ module.exports = function() {
 	});
 
 	this.Then(/^return a populated document$/, function (callback) {
-		callback.pending();
+		result.should.have.property("response");
+		result.should.be.instanceof(Array);
+		result.response.length().should.be.greaterThan(0);
+		callback();
 	});
 
 	this.When(/^a non\-json document is passed$/, function (callback) {
