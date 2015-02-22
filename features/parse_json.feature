@@ -2,19 +2,19 @@
 Feature: Parse json
 	Scenario: Empty JSON document supplied
 		When an empty document is passed
-		Then return an empty document
+		Then raise an exception
 
 	Scenario: DRM disabled and multiple episodes
 		When a document is passed with no drm and with episodes available
-		Then return an empty document
+		Then return an empty response list
 		
 	Scenario: DRM enabled and no episodes
 		When a document is passed with drm and with no episodes available
-		Then return an empty document
+		Then return an empty response list
 
 	Scenario: DRM enabled and multiple episodes
 		When a document is passed with drm and with episodes available
-		Then return a populated document
+		Then return a populated response list
 
 	Scenario: Malformed json
 		When a non-json document is passed

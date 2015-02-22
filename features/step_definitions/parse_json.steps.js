@@ -18,12 +18,16 @@ module.exports = function() {
 	var doc = {"payload": [show]};
 	
 	this.When(/^an empty document is passed$/, function (callback) {
+		return callback.pending();
 		result = ShowParser.extract_available_shows({});
 		callback();
 	});
 
-	this.Then(/^return an empty document$/, function (callback) {
-		callback.pending();
+	this.Then(/^return an empty response list$/, function (callback) {
+		result.should.have.property("response");
+		result.response.should.be.instanceof(Array);
+		result.response.length.should.be.equal(0);
+		callback();
 	});
 
 	this.When(/^a document is passed with no drm and with episodes available$/, function (callback) {
@@ -47,7 +51,7 @@ module.exports = function() {
 		callback();
 	});
 
-	this.Then(/^return a populated document$/, function (callback) {
+	this.Then(/^return a populated response list$/, function (callback) {
 		result.should.have.property("response");
 		result.response.should.be.instanceof(Array);
 		result.response.length.should.be.greaterThan(0);
@@ -59,6 +63,7 @@ module.exports = function() {
 	});
 
 	this.When(/^a non\-json document is passed$/, function (callback) {
+		return callback.pending();
 		JSON.parse("{something{");
 		callback();
 	});
