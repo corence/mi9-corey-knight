@@ -1,8 +1,8 @@
 
 Feature: Parse json
 	Scenario: Empty JSON document supplied
-		When an empty document is passed
-		Then parsing should return an error
+		When an empty document is parsed
+		Then an exception should be raised
 
 	Scenario: DRM disabled and multiple episodes
 		When a document is passed with no drm and with episodes available
@@ -18,7 +18,7 @@ Feature: Parse json
 
 	Scenario: Malformed json
 		When a non-json document is passed
-		Then parsing should return an error
+		Then an exception should be raised
 
 	Scenario: Payload with multiple records
 		When a document is passed with many shows in it
