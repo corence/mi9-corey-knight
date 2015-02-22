@@ -1,5 +1,5 @@
 {
-  "name": "mi9_corence",
+  "name": "mi9-corey-knight",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -7,7 +7,7 @@
   },
   "devDependencies": {
     "chai": "^2.0.0",
-    "cucumber": "^0.4.7",
+    "cucumber": "^0.4.7"
   },
   "scripts": {
     "test": "cucumber-js",
