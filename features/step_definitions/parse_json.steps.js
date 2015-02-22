@@ -18,14 +18,15 @@ module.exports = function() {
 	this.When(/^an empty document is passed$/, function (callback) {
 		try {
 			this.parsed = ShowParser.parse_shows("{}");
+			this.result = ShowParser.extract_available_shows(this.parsed);
 		} catch(err) {
 			this.exception = err;
 		}
-		//this.result = ShowParser.extract_available_shows({});
 		callback();
 	});
 
 	this.Then(/^return an empty response list$/, function (callback) {
+		this.should.not.have.property('exception');
 		this.result.should.have.property("response");
 		this.result.response.should.be.instanceof(Array);
 		this.result.response.length.should.equal(0);
@@ -66,6 +67,7 @@ module.exports = function() {
 	});
 
 	this.Then(/^return a populated response list$/, function (callback) {
+		this.should.not.have.property('exception');
 		this.result.should.have.property("response");
 		this.result.response.should.be.instanceof(Array);
 		this.result.response.length.should.be.greaterThan(0);

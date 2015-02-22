@@ -1,7 +1,7 @@
 
 Feature: Parse json
 	Scenario: Empty JSON document supplied
-		When an empty document is parsed
+		When an empty document is passed
 		Then an exception should be raised
 
 	Scenario: DRM disabled and multiple episodes

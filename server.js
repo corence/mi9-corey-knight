@@ -1,4 +1,5 @@
 
+'use strict';
 var http = require('http');
 var ShowParser = require('./scripts/model/show-parser.js');
 

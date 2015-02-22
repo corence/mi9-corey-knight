@@ -3,15 +3,7 @@
 
 module.exports = {
 	parse_shows: function(string) {
-					 try {
-						 var result = JSON.parse(string);
-						 if(!('payload' in result)) {
-							 return "Missing payload";
-						 }
-						 return result;
-					 } catch(err) {
-						 return err.message;
-					 }
+					 return JSON.parse(string);
 				 },
 	
 	extract_available_shows: function(doc) {
