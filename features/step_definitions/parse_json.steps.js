@@ -41,8 +41,8 @@ module.exports = function() {
 
 	this.Then(/^return a populated document$/, function (callback) {
 		result.should.have.property("response");
-		result.should.be.instanceof(Array);
-		result.response.length().should.be.greaterThan(0);
+		result.response.should.be.instanceof(Array);
+		result.response.length.should.be.greaterThan(0);
 		callback();
 	});
 

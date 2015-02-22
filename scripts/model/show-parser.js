@@ -3,6 +3,9 @@
 
 module.exports = {
 	extract_available_shows: function(doc) {
-				 return doc;
+				var response = doc.payload.map(function(show) {
+					return show;
+				});
+				return {"response": response};
 			}
 };
