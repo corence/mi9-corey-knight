@@ -25,6 +25,7 @@ var server = http.createServer(function(request, response) {
     request.on('end', function() {
 		var output = generate_output(fullBody);
 		console.log(output.status_code + ": " + output.body);
+		response.setHeader("Content-Type", "application/json");
 		response.writeHead(output.status_code);
 		response.end(output.body);
 	});
