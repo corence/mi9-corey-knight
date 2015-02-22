@@ -16,6 +16,6 @@ Feature: Parse json
 		When a document is passed with drm and with 3 episodes
 		Then return a populated document
 
-	Scenaro: Malformed json
+	Scenario: Malformed json
 		When a non-json document is passed
 		Then raise an exception
