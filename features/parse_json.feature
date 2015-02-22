@@ -5,15 +5,15 @@ Feature: Parse json
 		Then return an empty document
 
 	Scenario: DRM disabled and multiple episodes
-		When a document is passed with no drm and with 3 episodes
+		When a document is passed with no drm and with episodes available
 		Then return an empty document
 		
 	Scenario: DRM enabled and no episodes
-		When a document is passed with drm and with 0 episodes
+		When a document is passed with drm and with no episodes available
 		Then return an empty document
 
 	Scenario: DRM enabled and multiple episodes
-		When a document is passed with drm and with 3 episodes
+		When a document is passed with drm and with episodes available
 		Then return a populated document
 
 	Scenario: Malformed json
