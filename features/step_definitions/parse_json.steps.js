@@ -18,7 +18,8 @@ module.exports = function() {
 	var doc = {"payload": [show]};
 	
 	this.When(/^an empty document is passed$/, function (callback) {
-		callback.pending();
+		result = ShowParser.extract_available_shows({});
+		callback();
 	});
 
 	this.Then(/^return an empty document$/, function (callback) {
@@ -26,11 +27,17 @@ module.exports = function() {
 	});
 
 	this.When(/^a document is passed with no drm and with episodes available$/, function (callback) {
-		callback.pending();
+		show.drm = false;
+		show.episodeCount = 1;
+		result = ShowParser.extract_available_shows(doc);
+		callback();
 	});
 
 	this.When(/^a document is passed with drm and with no episodes available$/, function (callback) {
-		callback.pending();
+		show.drm = true;
+		show.episodeCount = 0;
+		result = ShowParser.extract_available_shows(doc);
+		callback();
 	});
 
 	this.When(/^a document is passed with drm and with episodes available$/, function (callback) {
@@ -52,7 +59,8 @@ module.exports = function() {
 	});
 
 	this.When(/^a non\-json document is passed$/, function (callback) {
-		callback.pending();
+		JSON.parse("{something{");
+		callback();
 	});
 
 	this.Then(/^raise an exception$/, function (callback) {
