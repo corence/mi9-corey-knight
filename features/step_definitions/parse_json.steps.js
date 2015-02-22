@@ -19,7 +19,8 @@ module.exports = function() {
 	var doc = {"payload": [show]};
 	
 	this.When(/^an empty document is passed$/, function (callback) {
-		result = ShowParser.extract_available_shows({});
+		parsed = ShowParser.parse_shows("{}");
+		//result = ShowParser.extract_available_shows({});
 		callback();
 	});
 
@@ -67,7 +68,7 @@ module.exports = function() {
 		callback();
 	});
 
-	this.Then(/^raise an exception$/, function (callback) {
+	this.Then(/^parsing should return an error$/, function (callback) {
 		parsed.should.be.a('string');
 		callback();
 	});
