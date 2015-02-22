@@ -19,3 +19,7 @@ Feature: Parse json
 	Scenario: Malformed json
 		When a non-json document is passed
 		Then parsing should return an error
+
+	Scenario: Payload with multiple records
+		When a document is passed with many shows in it
+		Then return a populated response list with many shows in it

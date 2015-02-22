@@ -72,4 +72,12 @@ module.exports = function() {
 		parsed.should.be.a('string');
 		callback();
 	});
+	
+	this.When(/^a document is passed with many shows in it$/, function (callback) {
+		callback.pending();
+	});
+
+	this.Then(/^return a populated response list with many shows in it$/, function (callback) {
+		callback.pending();
+	});
 };
