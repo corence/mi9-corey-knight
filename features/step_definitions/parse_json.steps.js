@@ -8,6 +8,15 @@ chai.should();
 module.exports = function() {
 	var result = null;
 	
+	var show = {
+				"image": {
+									"showImage": "http://catchup.ninemsn.com.au/img/jump-in/shows/16KidsandCounting1280.jpg"
+				},
+				"slug": "show/16kidsandcounting",
+				"title": "16 Kids and Counting",
+	};
+	var doc = {"payload": [show]};
+	
 	this.When(/^an empty document is passed$/, function (callback) {
 		callback.pending();
 	});
@@ -25,17 +34,9 @@ module.exports = function() {
 	});
 
 	this.When(/^a document is passed with drm and with episodes available$/, function (callback) {
-		var document = {"payload": [{
-		            "drm": true,
-		            "episodeCount": 3,
-		            "image": {
-						                "showImage": "http://catchup.ninemsn.com.au/img/jump-in/shows/16KidsandCounting1280.jpg"
-		            },
-		            "slug": "show/16kidsandcounting",
-		            "title": "16 Kids and Counting",
-						        }]};
-		
-		result = ShowParser.extract_available_shows(document);
+		show.drm = true;
+		show.episodeCount = 3;
+		result = ShowParser.extract_available_shows(doc);
 		callback();
 	});
 
