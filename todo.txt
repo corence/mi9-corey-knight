@@ -1,8 +1,7 @@
-
 Known issues:
  - my text editor isn't indenting javascript properly -- i'll need to track down a vim module for that!
- - use "npm save" or something similar so that the appropriate node_modules can be downloaded onto other systems
  - the cucumber steps definition file is too long; sample data should be extracted into another file (or multiple files)
  - some cucumber steps parse the input string and some don't; this should be consistent
- - many names aren't great (particularly, the names in the Feature file)
+ - also -- the noun "show" sounds too much like a verb. this should be replaced with another noun in function and variable names.
  - the project was prepared on Windows so I'm not sure what state the CRLF/LF line endings will be in
+ - there's no git branching; all commits went to master instead of using git-flows
