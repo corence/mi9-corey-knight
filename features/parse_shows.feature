@@ -1,5 +1,5 @@
 
-Feature: Parse json
+Feature: Parse a list of shows, and return the shows that are "available"
 	Scenario: Empty JSON document supplied
 		When an empty document is passed
 		Then an exception should be raised
